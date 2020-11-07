@@ -1,0 +1,13 @@
+      <%# エラーメッセージ表示%>
+      <div>
+        <% if hoge.errors.any? %>
+          <div id="error_explanation">
+            <h3><%= pluralize(hoge.errors.count, "error") %> prohibited this product from being saved:</h3>
+            <ul>
+              <% hoge.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>

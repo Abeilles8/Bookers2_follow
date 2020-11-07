@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <%# errors表示%>
+    <%= render 'root/errors_message', hoge: @book %>
+
+    <div class="col-md-6 col-md-ofset-3">
+      <h1>Editing Book</h1>
+      <%= form_for(@book, url: "/books/#{@book.id}") do |f| %>
+      <%# 投稿フォーム%>
+        <div class="field">
+          <label>Title</label>  
+          <%= f.text_field :title, class:"edit-title col-xs-12" %>
+        </div>
+
+        <div class="field">
+          <label>Opinion</label>  
+          <%= f.text_area :body, class:"edit-body col-xs-12" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit 'Update Book', class:"btn btn-primary col-xs-12" %>
+        </div>
+
+
+        <div>
+        <%= link_to "Show", book_path(@book.id), class: "link" %>
+        |
+        <%= link_to "Back", books_path, class: "link" %>
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+</div>
